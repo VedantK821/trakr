@@ -9,7 +9,7 @@ export default async function DashboardPage() {
     .select("org_id, role, organizations(name, slug)")
     .eq("user_id", user!.id);
 
-  const org = memberships?.[0]?.organizations as { name: string; slug: string } | null;
+  const org = memberships?.[0]?.organizations as unknown as { name: string; slug: string } | null;
 
   return (
     <div>

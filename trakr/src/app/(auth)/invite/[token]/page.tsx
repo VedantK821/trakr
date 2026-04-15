@@ -28,7 +28,7 @@ export default async function InvitePage({ params }: { params: Promise<{ token: 
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
-  const orgName = (invite.organizations as { name: string } | null)?.name || "the organization";
+  const orgName = (invite.organizations as unknown as { name: string } | null)?.name || "the organization";
 
   if (!user) {
     redirect(`/signup?next=/invite/${token}`);

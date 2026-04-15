@@ -10,7 +10,7 @@ export default async function SettingsPage() {
     .eq("user_id", user!.id)
     .single();
 
-  const org = membership?.organizations as { name: string; slug: string; billing_tier: string } | null;
+  const org = membership?.organizations as unknown as { name: string; slug: string; billing_tier: string } | null;
 
   return (
     <div className="max-w-2xl space-y-8">
