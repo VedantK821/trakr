@@ -31,7 +31,7 @@ export async function inviteMember(orgId: string, formData: FormData) {
   });
 
   if (!parsed.success) {
-    return { error: parsed.error.errors[0].message };
+    return { error: JSON.parse(parsed.error.message)[0].message };
   }
 
   const admin = createAdminClient();
